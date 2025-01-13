@@ -1,0 +1,9 @@
+abbabba 1
+abbabbabbabba 1
+a 1
+abbabbabbabbabba 1
+abba 1
+abbabbabba 1
+abb 0
+abbabbabbba 0
+abbabbabbabbabbabbabbabbabbabbabbabbabbabbabbaabbabbabbabbabba 0

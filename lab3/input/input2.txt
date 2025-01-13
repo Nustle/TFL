@@ -1,0 +1,9 @@
+1
+S -> S S
+S -> TS
+S -> ST
+S -> TT
+T -> TS
+T -> TT
+T -> SS
+T -> ab

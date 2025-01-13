@@ -1,0 +1,9 @@
+ababababababab 1
+ababababababababbba 0
+abababababab 1
+ababababababba 0
+ab 0
+abab 1
+ababab 1
+abababcb 0
+bababa 0
