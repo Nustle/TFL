@@ -44,31 +44,24 @@ function make_rules(input_rules::Vector{String})::Vector{Rule}
         i = 1
         while i <= lastindex(right_part)
             token = right_part[i]
-
+            i += 1
             if token == ' '
-                i += 1
                 continue
             elseif token == '|'
                 push!(rules, Rule(left, copy(right)))
                 empty!(right)
-                i += 1
             elseif token == '['
                 open_bracket = true
                 push!(right, "[")
-                i += 1
             elseif token == ']'
                 open_bracket = false
                 right[end] *= "]"
-                i += 1
             elseif isdigit(token)
                 right[end] *= token
-                i += 1
             elseif open_bracket
                 right[end] *= token
-                i += 1
             else
                 push!(right, string(token))
-                i += 1
             end
         end
         push!(rules, Rule(left, copy(right)))

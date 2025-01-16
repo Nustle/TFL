@@ -142,7 +142,7 @@ function generate_table(file_name::String, parse_table::Dict{String, Dict{String
 
     push!(html, "</table></body></html>")
     imgkit = pyimport("imgkit")
-    output_file = "output/table_$file_name.png"
-    imgkit["from_string"](join(html, "\n"), output_file)
+    output_file = "lab3/output/table_$file_name.png"
+    imgkit.from_string(join(html, "\n"), output_file)
     println("Table saved in $output_file")
 end

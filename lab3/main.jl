@@ -1,7 +1,7 @@
 include("grammar.jl")
 
 function marked_test(file_test::String, grammar::CFG)
-    file_path = joinpath("tests", file_test)
+    file_path = joinpath("lab3/tests", file_test)
     open(file_path, "r") do f
         for line in eachline(f)
             split_line = split(line)
@@ -21,8 +21,8 @@ function marked_test(file_test::String, grammar::CFG)
 end
 
 function main()
-    file_name = "input2"
-    file_path = joinpath("input", file_name * ".txt")
+    file_name = "input3"
+    file_path = joinpath("lab3/input", file_name * ".txt")
 
     k = 0
     input_rules = String[]
@@ -49,7 +49,7 @@ function main()
 
     construct_ll_table(grammar)
     generate_table(file_name, grammar.ll_table, grammar.start)
-    file_test = "test_input2.txt"
+    file_test = "test_input3.txt"
     marked_test(file_test, grammar)
 end
 
