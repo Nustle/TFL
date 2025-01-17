@@ -19,8 +19,8 @@ function CFG(k::Int, input_rules::Vector{String})
     cfg = CFG(k, rules_, start_, Σ_, nt_, Dict{String,Set{String}}(), Dict{String,Set{String}}(), Dict{String,Dict{String,Vector{Rule}}}())
     get_tnt(cfg)
     delete_useless_nt(cfg)
-    left_rec(cfg)
-    right_branching(cfg)
+    #left_rec(cfg)
+    #right_branching(cfg)
     refactor_new_nt(cfg)
     for n in cfg.nt
         cfg.ll_table[n] = Dict{String,Vector{Rule}}()
@@ -440,7 +440,16 @@ function construct_ll_table(cfg::CFG)
             if !haskey(cfg.ll_table[rule.left], x)
                 cfg.ll_table[rule.left][x] = Rule[]
             end
-            push!(cfg.ll_table[rule.left][x], rule)
+            if length(x) <= length(rule.right)
+                push!(cfg.ll_table[rule.left][x], rule)
+            end
+        end
+    end
+    for nt ∈ cfg.nt
+        for x ∈ keys(cfg.ll_table[nt])
+            if length(cfg.ll_table[nt][x]) == 0
+                delete!(cfg.ll_table[nt], x)
+            end
         end
     end
 end
